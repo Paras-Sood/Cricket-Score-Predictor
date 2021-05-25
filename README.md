@@ -3,7 +3,11 @@ Given the venue, Teams Playing, Batsmen, Bowlers, this code will predict the sco
 
 Present Accuracy - **92.557%**
 
-### Steps
-- Update _inputFile.csv_
-- Run _main.py_
-- Get the predicted Value
+### How to run
+- Open terminal
+- cd to the directory where this code is present
+- Run _"__python manage.py runserver__"_
+- Open Browser(Preferably Google Chrome)
+- Go to http://127.0.0.1:8000/predictor/
+- Enter data
+- Get output
