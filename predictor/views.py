@@ -33,8 +33,8 @@ class Newinput(forms.Form):
     innings=forms.IntegerField(max_value=2,min_value=1,label="Innings")
     batting_team=forms.ChoiceField(choices=teams,initial="")
     bowling_team=forms.ChoiceField(choices=teams,initial="")
-    batsmen=forms.CharField(label="Batsmen (csv format):")
-    bowler=forms.CharField(label="Bowler (csv format):")
+    batsmen=forms.CharField(label="Batsmen (csv format):",widget=forms.TextInput(attrs={'placeholder':"With single space between comma and next value"}))
+    bowler=forms.CharField(label="Bowler (csv format):",widget=forms.TextInput(attrs={'placeholder':"With single space between comma and next value"}))
 
 # Create your views here.
 def index(request):
@@ -55,10 +55,10 @@ def index(request):
                 fwriter.writerow([venue,innings,bat_team,bowl_team,f"{batsmen}",f"{bowler}"])
             runs = predictRuns('inputFile.csv')
             request.method="GET"
-            return render(request,'predictor/index.html',{
+            return render(request,'predictor/main.html',{
                 "form":Newinput(),
                 "runs":runs
             })
-    return render(request,'predictor/index.html',{
+    return render(request,'predictor/main.html',{
         "form":Newinput()
     })

@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cricket-Score-Predictor</title>
+<link rel="stylesheet" href="{% static 'predictor/mainStyle.css' %}">
+<script src="{% static 'predictor/index.js' %}"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+
+<script src="https://kit.fontawesome.com/4303a1479a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="background">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<section class="header">
+<nav>
+<a href="#"><img src="{% static 'predictor/images/Vivo-IPL-logo.png' %}" alt=""></a>
+<h1>Analysis of Power Play.</h1>
+<img src="{% static 'predictor/images/trophy.png' %}" alt="">
+</nav>
+<h3>India Ka Apna Mantra.</h3>
+<!-- <h1>Analysis of Power Play.</h1> -->
+</section>
+
+<section class="entry">
+<div class="slide-images">
+<img class="mySlides" src="{% static 'predictor/images/img-1.png' %}">
+<img class="mySlides" src="{% static 'predictor/images/img-2.png' %}">
+<img class="mySlides" src="{% static 'predictor/images/img-3.png' %}">
+<img class="mySlides" src="{% static 'predictor/images/img-4.png' %}">
+<img class="mySlides" src="{% static 'predictor/images/img-5.png' %}">
+<img class="mySlides" src="{% static 'predictor/images/img-6.png' %}">
+<img class="mySlides" src="{% static 'predictor/images/img-7.png' %}">
+<img class="mySlides" src="{% static 'predictor/images/img-8.png' %}">
+</div>
+<nav>
+<form action="{% url 'index' %}" method="POST">
+    {% csrf_token %}
+    {{form}}
+<div style="text-align: center;margin: 10px;">
+    <input type="submit" class="button" value="Predict" style="cursor: pointer;">
+</div>
+</form>
+</nav>
+<div class="slide-images">
+<img class="Slides" src="{% static 'predictor/images/img-8.png' %}">
+<img class="Slides" src="{% static 'predictor/images/img-7.png' %}">
+<img class="Slides" src="{% static 'predictor/images/img-6.png' %}">
+<img class="Slides" src="{% static 'predictor/images/img-5.png' %}">
+<img class="Slides" src="{% static 'predictor/images/img-4.png' %}">
+<img class="Slides" src="{% static 'predictor/images/img-3.png' %}">
+<img class="Slides" src="{% static 'predictor/images/img-2.png' %}">
+<img class="Slides" src="{% static 'predictor/images/img-1.png' %}">
+</div>
+</section>
+{% if runs %}
+    <h1>Predicted Runs: {{runs}}</h1>
+{% endif %}
+
+<section class="footer">
+<p>Copyright &copy; 2021. All rights Reserved.</p>
+</section>
+
+</div>
+
+</body>
+</html>
